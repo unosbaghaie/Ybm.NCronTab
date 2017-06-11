@@ -1,0 +1,196 @@
+﻿<script src="jquery-1.11.js"></script>
+<script src="CronGenerator.js"></script>
+<link href="bootstrap.min.css" rel="stylesheet" />
+<style>
+    li.cronPattern a.active {
+        background-color: #eeeeee;
+    }
+
+    div#CronGenMainDiv {
+        float: right;
+    }
+
+
+</style>
+
+<div class="popover-content">
+    <div id="CronGenMainDiv" style="width:520px;height:400px;" dir="rtl">
+
+        <input type="text" id="PatternResult" />
+
+        <ul class="nav nav-tabs" id="CronGenTabs" style="width: 561px;">
+            <!--<li><a id="MinutesTab" style="font-family: sahel;" >دقیقه ای</a></li>
+            <li><a id="HourlyTab" style="font-family: sahel;" >ساعتی</a></li>-->
+            <li class="cronPattern"><a id="DailyTab" style="font-family: sahel;">روزانه</a></li>
+            <li class="cronPattern"><a id="WeeklyTab" style="font-family: sahel;">هفته ای</a></li>
+            <li class="cronPattern"><a id="MonthlyTab" style="font-family: sahel;">ماهانه</a></li>
+            <li class="cronPattern"><a id="YearlyTab" style="font-family: sahel;">سالانه</a></li>
+        </ul>
+        <div class="container-fluid" style="font-family: sahel; margin-top: 10px;text-align:right;">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="tab-content">
+                        <!--<div class="tab-pane" id="MinutesTabDetail">
+                            هر
+                            <input id="MinutesInput" type="text" value="1" style="width: 40px">دقیقه
+                        </div>-->
+                        <!--<div class="tab-pane" id="HourlyTabDetail">
+                            <div class="well well-small">
+                                <input type="radio" value="1" name="HourlyRadio" checked="checked"> هر
+                                <input id="HoursInput" type="text" value="1" style="width: 40px"> ساعت
+                            </div>
+                            <div class="well well-small">
+                                <input type="radio" value="2" name="HourlyRadio"> در
+                                <select id="AtHours" class="hours" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option></select>
+                                <select id="AtMinutes" class="minutes" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option><option id="24">24</option><option id="25">25</option><option id="26">26</option><option id="27">27</option><option id="28">28</option><option id="29">29</option><option id="30">30</option><option id="31">31</option><option id="32">32</option><option id="33">33</option><option id="34">34</option><option id="35">35</option><option id="36">36</option><option id="37">37</option><option id="38">38</option><option id="39">39</option><option id="40">40</option><option id="41">41</option><option id="42">42</option><option id="43">43</option><option id="44">44</option><option id="45">45</option><option id="46">46</option><option id="47">47</option><option id="48">48</option><option id="49">49</option><option id="50">50</option><option id="51">51</option><option id="52">52</option><option id="53">53</option><option id="54">54</option><option id="55">55</option><option id="56">56</option><option id="57">57</option><option id="58">58</option><option id="59">59</option></select>
+                            </div>
+                        </div>-->
+
+                        <div class="tab-pane" id="DailyTabDetail">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="note note-info">
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    توجه : ارسال های این قسمت هر N روز یکمرتبه انجام می شود
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="well well-small">
+                                <input type="radio" value="1" name="DailyRadio" checked="checked"> هر
+                                <input id="DaysInput" type="text" value="1" style="width: 40px"> روز یکمرتبه ارسال انجام شود
+                            </div>
+                            <div class="well well-small"><input type="radio" value="2" name="DailyRadio"> در روزهای کاری هفته ارسال انجام شود </div> ساعت ارسال
+                            <select id="DailyMinutes" class="minutes" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option><option id="24">24</option><option id="25">25</option><option id="26">26</option><option id="27">27</option><option id="28">28</option><option id="29">29</option><option id="30">30</option><option id="31">31</option><option id="32">32</option><option id="33">33</option><option id="34">34</option><option id="35">35</option><option id="36">36</option><option id="37">37</option><option id="38">38</option><option id="39">39</option><option id="40">40</option><option id="41">41</option><option id="42">42</option><option id="43">43</option><option id="44">44</option><option id="45">45</option><option id="46">46</option><option id="47">47</option><option id="48">48</option><option id="49">49</option><option id="50">50</option><option id="51">51</option><option id="52">52</option><option id="53">53</option><option id="54">54</option><option id="55">55</option><option id="56">56</option><option id="57">57</option><option id="58">58</option><option id="59">59</option></select>
+                            <select id="DailyHours" class="hours" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option></select>
+
+                        </div>
+                        <div class="tab-pane" id="WeeklyTabDetail">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="note note-info">
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    توجه : ارسال های این قسمت در روزهای مشخص شده ی هر هفته انجام می شود
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well well-small">
+                                <div class="span6 col-sm-6">
+                                    <input type="checkbox" value="SAT"> شنبه
+                                    <br>
+                                    <input type="checkbox" value="MON"> دوشنبه
+                                    <br>
+                                    <input type="checkbox" value="WED"> چهارشنبه
+                                    <br>
+                                    <input type="checkbox" value="FRI"> جمعه
+                                    <br>
+                                </div>
+                                <div class="span6 col-sm-6">
+                                    <input type="checkbox" value="SUN"> یک شنبه
+                                    <br>
+                                    <input type="checkbox" value="TUE"> سه شنبه
+                                    <br>
+                                    <input type="checkbox" value="THU"> پنج شنبه
+                                    <br>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </div> ساعت ارسال
+                            <select id="WeeklyMinutes" class="minutes" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option><option id="24">24</option><option id="25">25</option><option id="26">26</option><option id="27">27</option><option id="28">28</option><option id="29">29</option><option id="30">30</option><option id="31">31</option><option id="32">32</option><option id="33">33</option><option id="34">34</option><option id="35">35</option><option id="36">36</option><option id="37">37</option><option id="38">38</option><option id="39">39</option><option id="40">40</option><option id="41">41</option><option id="42">42</option><option id="43">43</option><option id="44">44</option><option id="45">45</option><option id="46">46</option><option id="47">47</option><option id="48">48</option><option id="49">49</option><option id="50">50</option><option id="51">51</option><option id="52">52</option><option id="53">53</option><option id="54">54</option><option id="55">55</option><option id="56">56</option><option id="57">57</option><option id="58">58</option><option id="59">59</option></select>
+                            <select id="WeeklyHours" class="hours" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option></select>
+                        </div>
+                        <div class="tab-pane" id="MonthlyTabDetail">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="note note-info">
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    توجه : ارسال های این قسمت در روز مشخص شده ی هر N ماه انجام می شود
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="radio" value="1" name="MonthlyRadio" checked="checked">  روز
+                                <input id="DayOfMOnthInput" type="text" value="1" style="width: 40px">
+                                <br />
+                                <div class="span6 col-sm-6">
+                                    <input type="checkbox" class="monthlyMonthInputs" value="1"> فروردین
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="2"> اردیبهشت
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="3"> خرداد
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="4"> تیر
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="5"> مرداد
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="6"> شهریور
+                                    <br>
+                                </div>
+                                <div class="span6 col-sm-6">
+                                    <input type="checkbox" class="monthlyMonthInputs" value="7"> مهر
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="8"> آبان
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="9"> آذر
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="10"> دی
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="11"> بهمن
+                                    <br>
+                                    <input type="checkbox" class="monthlyMonthInputs" value="12"> اسفند
+                                    <br>
+                                </div>
+
+
+                                <!--<input id="MonthInput" type="text" value="1" style="width: 40px"> ماه-->
+
+                            </div>
+                            ساعت ارسال
+                            <select id="MonthlyMinutes" class="minutes" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option><option id="24">24</option><option id="25">25</option><option id="26">26</option><option id="27">27</option><option id="28">28</option><option id="29">29</option><option id="30">30</option><option id="31">31</option><option id="32">32</option><option id="33">33</option><option id="34">34</option><option id="35">35</option><option id="36">36</option><option id="37">37</option><option id="38">38</option><option id="39">39</option><option id="40">40</option><option id="41">41</option><option id="42">42</option><option id="43">43</option><option id="44">44</option><option id="45">45</option><option id="46">46</option><option id="47">47</option><option id="48">48</option><option id="49">49</option><option id="50">50</option><option id="51">51</option><option id="52">52</option><option id="53">53</option><option id="54">54</option><option id="55">55</option><option id="56">56</option><option id="57">57</option><option id="58">58</option><option id="59">59</option></select>
+                            <select id="MonthlyHours" class="hours" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option></select>
+                        </div>
+                        <div class="tab-pane" id="YearlyTabDetail">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="note note-info">
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    توجه : ارسال های این قسمت در روز مشخص شده ی هر سال انجام می شود
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well well-small">
+                                <input type="radio" value="1" name="YearlyRadio" checked="checked"> هر
+                                <select id="MonthsOfYear" class="months" style="width: 150px"><option value="1">فروردین</option><option value="2">اردیبهشت</option><option value="3">خرداد</option><option value="4">تیر</option><option value="5">مرداد</option><option value="6">شهریور</option><option value="7">مهر</option><option value="8">آبان</option><option value="9">آذر</option><option value="10">دی</option><option value="11">بهمن</option><option value="12">اسفند</option></select> در روز
+                                <input id="YearInput" type="text" value="1" style="width: 40px">
+                            </div> ساعت ارسال
+                            <select id="YearlyMinutes" class="minutes" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option><option id="24">24</option><option id="25">25</option><option id="26">26</option><option id="27">27</option><option id="28">28</option><option id="29">29</option><option id="30">30</option><option id="31">31</option><option id="32">32</option><option id="33">33</option><option id="34">34</option><option id="35">35</option><option id="36">36</option><option id="37">37</option><option id="38">38</option><option id="39">39</option><option id="40">40</option><option id="41">41</option><option id="42">42</option><option id="43">43</option><option id="44">44</option><option id="45">45</option><option id="46">46</option><option id="47">47</option><option id="48">48</option><option id="49">49</option><option id="50">50</option><option id="51">51</option><option id="52">52</option><option id="53">53</option><option id="54">54</option><option id="55">55</option><option id="56">56</option><option id="57">57</option><option id="58">58</option><option id="59">59</option></select>
+                            <select id="YearlyHours" class="hours" style="width: 60px"><option id="0">00</option><option id="1">01</option><option id="2">02</option><option id="3">03</option><option id="4">04</option><option id="5">05</option><option id="6">06</option><option id="7">07</option><option id="8">08</option><option id="9">09</option><option id="10">10</option><option id="11">11</option><option id="12">12</option><option id="13">13</option><option id="14">14</option><option id="15">15</option><option id="16">16</option><option id="17">17</option><option id="18">18</option><option id="19">19</option><option id="20">20</option><option id="21">21</option><option id="22">22</option><option id="23">23</option></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

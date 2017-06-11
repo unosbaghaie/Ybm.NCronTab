@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ybm.NCronTab.Test", "Ybm.NCronTab.Test\Ybm.NCronTab.Test.csproj", "{16A93C59-C3CB-468C-BFCC-7F4687A31A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ybm.NCronTab.UI", "Ybm.NCronTab.UI\Ybm.NCronTab.UI.csproj", "{98376D6B-CD0C-4994-AC0F-056F1C1DE2EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ybm.NCronTab", "Ybm.NCronTab\Ybm.NCronTab.csproj", "{D632CEEB-16F1-4F6A-8DCA-AE23C76D4945}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16A93C59-C3CB-468C-BFCC-7F4687A31A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A93C59-C3CB-468C-BFCC-7F4687A31A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A93C59-C3CB-468C-BFCC-7F4687A31A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A93C59-C3CB-468C-BFCC-7F4687A31A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98376D6B-CD0C-4994-AC0F-056F1C1DE2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98376D6B-CD0C-4994-AC0F-056F1C1DE2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98376D6B-CD0C-4994-AC0F-056F1C1DE2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98376D6B-CD0C-4994-AC0F-056F1C1DE2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D632CEEB-16F1-4F6A-8DCA-AE23C76D4945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D632CEEB-16F1-4F6A-8DCA-AE23C76D4945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D632CEEB-16F1-4F6A-8DCA-AE23C76D4945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D632CEEB-16F1-4F6A-8DCA-AE23C76D4945}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
